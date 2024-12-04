@@ -370,3 +370,23 @@ button.prev:hover, button.next:hover {
     font-weight: bold; 
     margin: 20px 0 15px; 
 }
+/* Navigation Bar for Smaller Screens */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column; /* Stack the nav items vertically */
+        align-items: flex-start; /* Align items to the left */
+        padding: 15px 20px;
+    }
+
+    .navbar a {
+        margin: 10px 0; /* Space out the links vertically */
+    }
+
+    #mode-toggle {
+        margin-top: 10px; /* Adjust position for mode toggle button */
+    }
+
+    .navbar a:hover {
+        text-decoration: none; /* Optional: Change hover effect for smaller screens */
+    }
+}
