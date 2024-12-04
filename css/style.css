@@ -15,7 +15,7 @@
 }
 
 body {
-    font-family: Georgia, sans-serif;
+    font-family: Poppins, sans-serif;
     margin: 0;
     padding: 0;
     background-color: white;
@@ -63,6 +63,7 @@ nav {
 .intro-text {
     font-size: 50px; 
     font-weight: bold;
+}
 .links {
     margin-top: 20px;
 }
@@ -124,7 +125,7 @@ nav {
 
 /* Style for images inside the grid layout */
 .image-grid img {
-    width: 300%;
+    width: 150%;
     height: auto;
     transition: transform 0.3s, box-shadow 0.3s;
 }

@@ -3,10 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Page
-    </title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>About Me</title>
 </head>
 <body>
-    
+    <nav>
+        <div class="navbar">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Me</a>
+            <a href="si-projects.html">SI Projects</a>
+            <a href="eecs-projects.html">EECS Projects</a>
+            <a href="interests.html">Interests</a>
+            <button id="mode-toggle">Toggle Mode</button>
+        </div>
+    </nav>
+    <div class="content">
+        <h1>About Me</h1>
+        <div class="about-detail">
+            <img src="images/profile.jpg" alt="Sam standing in front of wall" class="profile-pic">
+            <p>Hello! My name is Samira Marquez Gomez but I go by Sam! I'm a junior at the University of Michigan studying Information Science with a concentration in User Experience.</p>
+            <p>I have a passion for designing user-friendly interfaces and creating seamless user experiences. In my free time, I enjoy spending time with friends and exploring new technologies</p>
+            <p>Feel free to explore my website to know more about my projects, interests, and experiences. If you want to get in touch, visit the contact section in the footer below. Thanks for stopping by!</p>
+        </div>
+    </div>
+    <footer class="footer">
+        <p>Coded in VSCode.</p>
+        <p>Connect with me!</p>
+        <p>
+            <a href="https://www.linkedin.com/in/samira-marquez-gomez-017a86293/" target="_blank">LinkedIn</a> | 
+            Email: <a href="mailto:smarquez@umich.edu">smarquez@umich.edu</a> | 
+            Phone: <a href="tel:+16785701202">678-570-1202</a>
+        </p>
+    </footer>
+
+    <script>
+        const toggleButton = document.getElementById('mode-toggle');
+        toggleButton.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+        });
+    </script>
 </body>
 </html>
