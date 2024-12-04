@@ -60,7 +60,9 @@ nav {
     padding: 20px;
     text-align: center;
 }
-
+.intro-text {
+    font-size: 50px; 
+    font-weight: bold;
 .links {
     margin-top: 20px;
 }
@@ -122,7 +124,7 @@ nav {
 
 /* Style for images inside the grid layout */
 .image-grid img {
-    width: 100%;
+    width: 300%;
     height: auto;
     transition: transform 0.3s, box-shadow 0.3s;
 }

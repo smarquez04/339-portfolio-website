@@ -19,20 +19,20 @@
         </div>
     </nav>
     <div class="content">
-        <h1>Hi, my name is Sam.</h1>
-        <p>I'm a junior at the University of Michigan studying Information Sceince with a Concentration in User Experience </p>
+        <h1 class="intro-text">Hi, my name is Sam.</h1>
+        <p>I'm a junior at the University of Michigan studying Information Sceince with a concentration in User Experience </p>
         <div class="links">
             <a href="about.html">
-                <img src="images/about.png" alt="About Me" class="logo">
+                <img src="images/about.png" alt="About Me button" class="logo">
             </a>
             <a href="si-projects.html">
-                <img src="images/si-projects.png" alt="SI Projects" class="logo">
+                <img src="images/si-projects.png" alt="SI Projects button" class="logo">
             </a>
             <a href="eecs-projects.html">
-                <img src="images/eecs-projects.png" alt="EECS Projects" class="logo">
+                <img src="images/eecs-projects.png" alt="EECS Projects button" class="logo">
             </a>
             <a href="interests.html">
-                <img src="images/interests.png" alt="Interests" class="logo">
+                <img src="images/interests.png" alt="Interests button" class="logo">
             </a>
         </div>
     </div>
@@ -45,5 +45,11 @@
             Phone: <a href="tel:+16785701202">678-570-1202</a>
         </p>
     </footer>
+    <script>
+        const toggleButton = document.getElementById('mode-toggle');
+        toggleButton.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+        });
+    </script>s
 </body>
 </html>
