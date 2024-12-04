@@ -24,40 +24,49 @@
 
         <section class="interest-section music">
             <h2>Music</h2>
-            <p>Here are my top 5 artists at the moment:</p>
-            <div class="image-grid">
-                <!-- Add your images here -->
-                <div class="image-placeholder">Image 1</div>
-                <div class="image-placeholder">Image 2</div>
-                <div class="image-placeholder">Image 3</div>
-                <div class="image-placeholder">Image 4</div>
-                <div class="image-placeholder">Image 5</div>
+            <p>I love love love listening to music. Here are my top 5 artists at the moment:</p>
+            <div class="carousel-container">
+                <div class="carousel">
+                    <img src="images/tyler.jpg" alt="tyler childers profile picture" class="carousel-image">
+                    <img src="images/megan.jpg" alt="megan moroney profile picture" class="carousel-image">
+                    <img src="images/wyatt.jpg" alt="wyatt flores spotify profile picture" class="carousel-image">
+                    <img src="images/zach.jpg" alt="zach bryan artist picture" class="carousel-image">
+                    <img src="images/treaty.jpg" alt="treaty oak revival band profile picture" class="carousel-image">
+                </div>
+                <button class="prev" aria-label="Previous image">←</button>
+                <button class="next" aria-label="Next image">→</button>
             </div>
         </section>
         
         <section class="interest-section paint">
             <h2>Paint</h2>
             <p>Although I don't get to paint as often as I'd like, I really like using watercolors and acrylic paint when I do get the chance!</p>
-            <div class="image-grid">
-                <!-- Add your images here -->
-                <div class="image-placeholder">Image 1</div>
-                <div class="image-placeholder">Image 2</div>
-                <div class="image-placeholder">Image 3</div>
-                <div class="image-placeholder">Image 4</div>
-                <div class="image-placeholder">Image 5</div>
+            <div class="carousel-container">
+                <div class="carousel">
+                    <img src="images/black-cat.jpg" alt="black cat sitting" class="carousel-image">
+                    <img src="images/strawberries.jpg" alt="3 strawberries, 1 cut in half" class="carousel-image">
+                    <img src="images/michigan.jpg" alt="white and pink flowers" class="carousel-image">
+                    <img src="images/peaches.jpg" alt="peach and 2 peach slices" class="carousel-image">
+                    <img src="images/pink-flowers.jpg" alt="pink flowers in an orange vase" class="carousel-image">
+                    </div>
+                    <button class="prev" aria-label="Previous image">←</button>
+                    <button class="next" aria-label="Next image">→</button>
             </div>
         </section>
 
         <section class="interest-section photography">
             <h2>Photography</h2>
             <p>I love taking pictures! Whenever I see a pretty view or sight, I just have to take a picture.</p>
-            <div class="image-grid">
-                <!-- Add your images here -->
-                <div class="image-placeholder">Image 1</div>
-                <div class="image-placeholder">Image 2</div>
-                <div class="image-placeholder">Image 3</div>
-                <div class="image-placeholder">Image 4</div>
-                <div class="image-placeholder">Image 5</div>
+            <div class="carousel-container">
+                <div class="carousel">
+                    <img src="images/shoes.jpg" alt="shoes hanging from a tree" class="carousel-image">
+                    <img src="images/sunset.jpg" alt="street view of sunset" class="carousel-image">
+                    <img src="images/mountains.jpg" alt="view of mountains and greenery" class="carousel-image">
+                    <img src="images/flower-field.jpg" alt="field of wild flowers" class="carousel-image">
+                    <img src="images/plane.jpg" alt="overhead view of terrain from plane" class="carousel-image">
+                </div>
+                <button class="prev" aria-label="Previous image">←</button>
+                <button class="next" aria-label="Next image">→</button>
             </div>
         </section>
     </div>
@@ -70,12 +79,50 @@
             Phone: <a href="tel:+16785701202">678-570-1202</a>
         </p>
     </footer>
-
     <script>
-        const toggleButton = document.getElementById('mode-toggle');
-        toggleButton.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
-        });
+    // Track the current slide for each carousel independently
+    function moveSlide(step, carouselIndex) {
+        const carousels = document.querySelectorAll('.carousel');
+        const slides = carousels[carouselIndex].querySelectorAll('.carousel-image');
+        const totalSlides = slides.length;
+        let currentSlide = parseInt(carousels[carouselIndex].getAttribute('data-current-slide') || 0);
+
+        // Update the current slide
+        currentSlide = (currentSlide + step + totalSlides) % totalSlides;
+        carousels[carouselIndex].setAttribute('data-current-slide', currentSlide);
+
+        // Move the carousel
+        carousels[carouselIndex].style.transform = `translateX(-${currentSlide * 100}%)`;
+    }
+
+    // Attach event listeners to buttons for each carousel
+    document.querySelectorAll('.carousel').forEach((carousel, index) => {
+        const prevButton = carousel.parentElement.querySelector('.prev');
+        const nextButton = carousel.parentElement.querySelector('.next');
+        
+        prevButton.addEventListener('click', () => moveSlide(-1, index));
+        nextButton.addEventListener('click', () => moveSlide(1, index));
+    });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+    const toggleButton = document.getElementById("mode-toggle");
+
+    toggleButton.addEventListener("click", () => {
+        const root = document.documentElement;
+
+        // Toggle between light and dark mode
+        if (root.style.getPropertyValue("--navbar-footer-bg-color") === "var(--background-color-dark)") {
+            root.style.setProperty("--navbar-footer-bg-color", "var(--background-color-light)");
+            root.style.setProperty("--text-color", "var(--text-color-light)");
+            document.body.style.backgroundColor = "white";
+        } else {
+            root.style.setProperty("--navbar-footer-bg-color", "var(--background-color-dark)");
+            root.style.setProperty("--text-color", "var(--text-color-dark)");
+            document.body.style.backgroundColor = "#333";
+        }
+    });
+});
     </script>
 </body>
 </html>

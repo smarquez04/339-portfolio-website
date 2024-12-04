@@ -86,10 +86,24 @@
     </footer>
 
     <script>
-        const toggleButton = document.getElementById('mode-toggle');
-        toggleButton.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
-        });
+        document.addEventListener("DOMContentLoaded", () => {
+    const toggleButton = document.getElementById("mode-toggle");
+
+    toggleButton.addEventListener("click", () => {
+        const root = document.documentElement;
+
+        // Toggle between light and dark mode
+        if (root.style.getPropertyValue("--navbar-footer-bg-color") === "var(--background-color-dark)") {
+            root.style.setProperty("--navbar-footer-bg-color", "var(--background-color-light)");
+            root.style.setProperty("--text-color", "var(--text-color-light)");
+            document.body.style.backgroundColor = "white";
+        } else {
+            root.style.setProperty("--navbar-footer-bg-color", "var(--background-color-dark)");
+            root.style.setProperty("--text-color", "var(--text-color-dark)");
+            document.body.style.backgroundColor = "#333";
+        }
+    });
+});
     </script>
 </body>
 </html>
